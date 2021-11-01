@@ -2,8 +2,8 @@
 Cookiecutter PyPackage
 ======================
 
-.. image:: https://travis-ci.org/pymetrics/cookiecutter-python-library.svg?branch=master
-    :target: https://travis-ci.org/github/pymetrics/cookiecutter-python-library
+.. image:: https://app.travis-ci.com/pymetrics/cookiecutter-python-library.svg?branch=master
+    :target: https://app.travis-ci.com/github/pymetrics/cookiecutter-python-library
     :alt: Build Status
 
 .. image:: https://readthedocs.org/projects/cookiecutter-python-library/badge/?version=latest
@@ -71,7 +71,7 @@ Forked from `@audryr's cookiecutter-pypackage`_.
 .. _`@audryr's cookiecutter-pypackage`: https://github.com/audreyfeldroy/cookiecutter-pypackage
 
 
-.. _Travis-CI: http://travis-ci.org/
+.. _Travis-CI: http://travis-ci.com/
 .. _Tox: http://testrun.org/tox/
 .. _Sphinx: http://sphinx-doc.org/
 .. _Read the Docs: https://readthedocs.io/
