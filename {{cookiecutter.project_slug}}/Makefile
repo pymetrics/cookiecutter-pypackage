@@ -50,12 +50,10 @@ clean-test: ## remove test and coverage artifacts
 lint/flake8: ## check style with flake8
 	flake8 {{ cookiecutter.project_slug }} tests
 
-{%- if cookiecutter.use_black == 'y' %}
 lint/black: ## check style with black
 	black --check {{ cookiecutter.project_slug }} tests
-{%- endif %}
 
-lint: lint/flake8{%- if cookiecutter.use_black == 'y' %} lint/black{%- endif %} ## check style
+lint: lint/flake8 lint/black ## check style
 
 test: ## run tests quickly with the default Python
 {%- if cookiecutter.use_pytest == 'y' %}
