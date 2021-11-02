@@ -321,3 +321,33 @@ def test_bake_with_argparse_console_script_cli(cookies):
     help_result = runner.invoke(cli.main, ['--help'])
     assert help_result.exit_code == 0
     assert 'Show this message' in help_result.output
+
+
+def test_bake_with_python_3_6_support(cookies):
+    context = {"support_python_3_6": "y"}
+    with bake_in_temp_dir(
+        cookies,
+        extra_context=context
+    ) as result:
+        assert result.project.isdir()
+        setup_py = result.project.join("setup.py").read()
+        assert "Programming Language :: Python :: 3.6" in setup_py
+        assert 'python_requires=">=3.6"' in setup_py
+        tox_ini = result.project.join("tox.ini").read()
+        assert "py36" in tox_ini
+        assert "3.6: py36" in tox_ini
+
+
+def test_bake_without_python_3_6_support(cookies):
+    context = {"support_python_3_6": "n"}
+    with bake_in_temp_dir(
+        cookies,
+        extra_context=context
+    ) as result:
+        assert result.project.isdir()
+        setup_py = result.project.join("setup.py").read()
+        assert "Programming Language :: Python :: 3.6" not in setup_py
+        assert 'python_requires=">=3.7"' in setup_py
+        tox_ini = result.project.join("tox.ini").read()
+        assert "py36" not in tox_ini
+        assert "3.6: py36" not in tox_ini
