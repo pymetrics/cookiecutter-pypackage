@@ -351,3 +351,31 @@ def test_bake_without_python_3_6_support(cookies):
         tox_ini = result.project.join("tox.ini").read()
         assert "py36" not in tox_ini
         assert "3.6: py36" not in tox_ini
+
+
+def test_bake_with_mypy(cookies):
+    context = {"use_mypy": "y"}
+    with bake_in_temp_dir(
+        cookies,
+        extra_context=context
+    ) as result:
+        assert result.project.isdir()
+        makefile = result.project.join("Makefile").read()
+        assert "lint/mypy:" in makefile
+        assert "lint: lint/flake8 lint/black lint/mypy ## check style" in makefile
+        requirements_dev = result.project.join("requirements_dev.txt").read()
+        assert "mypy" in requirements_dev
+
+
+def test_bake_without_mypy(cookies):
+    context = {"use_mypy": "n"}
+    with bake_in_temp_dir(
+        cookies,
+        extra_context=context
+    ) as result:
+        assert result.project.isdir()
+        makefile = result.project.join("Makefile").read()
+        assert "lint/mypy:" not in makefile
+        assert "lint: lint/flake8 lint/black lint/mypy" not in makefile
+        requirements_dev = result.project.join("requirements_dev.txt").read()
+        assert "mypy" not in requirements_dev

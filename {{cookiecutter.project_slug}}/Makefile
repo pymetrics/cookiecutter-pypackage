@@ -53,7 +53,13 @@ lint/flake8: ## check style with flake8
 lint/black: ## check style with black
 	black --check {{ cookiecutter.project_slug }} tests
 
-lint: lint/flake8 lint/black ## check style
+{%- if cookiecutter.use_mypy == "y" %}
+
+lint/mypy: ## type check with mypy
+	mypy {{ cookiecutter.project_slug }}
+{%- endif %}
+
+lint: lint/flake8 lint/black{% if cookiecutter.use_mypy == "y" %} lint/mypy {% endif %}## check style
 
 test: ## run tests quickly with the default Python
 {%- if cookiecutter.use_pytest == 'y' %}
