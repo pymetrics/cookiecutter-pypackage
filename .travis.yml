@@ -13,13 +13,13 @@ install: pip install -U tox-travis
 script: tox
 
 # deploy new versions to PyPI
-deploy:
-  provider: pypi
-  distributions: sdist bdist_wheel
-  user: audreyr
-  password:
-    secure: PLEASE_REPLACE_ME
-  on:
-    tags: true
-    repo: audreyr/python_boilerplate
-    python: 3.8
+# deploy:
+#   provider: pypi
+#   distributions: sdist
+#   username: __token__
+#   password:
+#     secure: $PYPI_PASSWORD
+#   on:
+#     tags: true
+#     repo: pymetrics/cookiecutter-python-library
+#     python: 3.8
