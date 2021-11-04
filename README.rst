@@ -21,11 +21,12 @@ Features
 
 * Testing setup with ``unittest`` and ``python setup.py test`` or ``pytest``
 * Travis-CI_: Ready for Travis Continuous Integration testing
-* Tox_ testing: Setup to easily test for Python 3.7, 3.8, 3.9
+* Tox_ testing: Setup to easily test for Python 3.7, 3.8, and 3.9,
+  with optional support for Python 3.6
 * Sphinx_ docs: Documentation ready for generation with, for example, `Read the Docs`_
 * bump2version_: Pre-configured version bumping with a single command
 * Auto-release to PyPI_ when you push a new tag to master (optional)
-* Command line interface using Click (optional)
+* Command line interface using Click or argparse (optional)
 
 .. _Cookiecutter: https://github.com/cookiecutter/cookiecutter
 
@@ -48,7 +49,7 @@ Then:
 * Add the repo to your Travis-CI_ account.
 * Install the dev requirements into a virtualenv. (``pip install -r requirements_dev.txt``)
 * Register_ your project with PyPI.
-  * Run ``make release``.
+  * Run ``twine upload dist/*``.
 * For an open source project, `create a PyPI API token`_, with scope limited to the project,
   for publishing.
 * Set PyPI credentials in TravisCI environment variables ``PYPI_USERNAME`` and ``PYPI_PASSWORD``.
