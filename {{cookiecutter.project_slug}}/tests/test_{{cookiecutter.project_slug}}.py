@@ -34,6 +34,7 @@ def test_content(response):
     # from bs4 import BeautifulSoup
     # assert 'GitHub' in BeautifulSoup(response.content).title.string
 
+
 def test_greet():
     """Test the sample greeter function"""
     resp = {{ cookiecutter.project_slug }}.greet("{{ cookiecutter.github_username }}")
