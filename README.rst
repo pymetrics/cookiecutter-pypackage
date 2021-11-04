@@ -48,13 +48,17 @@ Then:
 * Add the repo to your Travis-CI_ account.
 * Install the dev requirements into a virtualenv. (``pip install -r requirements_dev.txt``)
 * Register_ your project with PyPI.
-* In PyPI, create an API token for publishing the project.
-* Add the API token to Travis-CI' environment variable ``PYPI_PASSWORD``.
+  * Run ``make release``.
+* For an open source project, `create a PyPI API token`_, with scope limited to the project,
+  for publishing.
+* Set PyPI credentials in TravisCI environment variables ``PYPI_USERNAME`` and ``PYPI_PASSWORD``.
+  * If using an API token, set ``PYPI_USERNAME`` to ``__token__``.
 * Add the repo to your `Read the Docs`_ account + turn on the Read the Docs service hook.
 * Release your package by pushing a new tag to master.
 * Add a ``requirements.txt`` file that specifies the packages you will need for
   your project and their versions. For more info see the `pip docs for requirements files`_.
 
+.. _`create a PyPI API token`: https://pypi.org/manage/account/#api-tokens
 .. _`pip docs for requirements files`: https://pip.pypa.io/en/stable/user_guide/#requirements-files
 .. _Register: https://packaging.python.org/tutorials/packaging-projects/#uploading-the-distribution-archives
 
