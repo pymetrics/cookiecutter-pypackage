@@ -118,10 +118,10 @@ To run a subset of tests::
     $ python -m unittest tests.test_{{ cookiecutter.project_slug }}
 {%- endif %}
 
-Deploying
----------
+Publishing
+----------
 
-A reminder for the maintainers on how to deploy.
+A reminder for the maintainers on how to publish.
 Make sure all your changes are committed (including an entry in HISTORY.rst).
 Then run::
 
