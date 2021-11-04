@@ -105,3 +105,9 @@ dist: clean ## builds source and wheel package
 
 install: clean ## install the package to the active Python's site-packages
 	python setup.py install
+
+
+develop: ## Create a virtualenv and install dev dependencies
+	tox --devenv .env
+	source .env/bin/activate
+	python -m pip install -e .

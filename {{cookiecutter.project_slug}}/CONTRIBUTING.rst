@@ -64,12 +64,24 @@ Ready to contribute? Here's how to set up `{{ cookiecutter.project_slug }}` for 
 
     $ git clone git@github.com:your_name_here/{{ cookiecutter.project_slug }}.git
 
-3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
+3. Install your local copy into a virtualenv. Assuming you have tox_ installed, this is how you set up your fork for local development::
+
+    $ make develop
+
+   This will create a virtual environment in the ``.env`` directory, enable it, and
+   install all project and development dependencies.
+
+   Alternately, with virtualenvwrapper_:
 
     $ mkvirtualenv {{ cookiecutter.project_slug }}
     $ cd {{ cookiecutter.project_slug }}/
     $ python setup.py develop
     $ python -m pip install -r requirements_dev.txt
+
+
+.. tox_:https://tox.wiki/en/latest/index.html
+.. virtualenvwrapper_:https://virtualenvwrapper.readthedocs.io/en/latest/
+
 
 4. Create a branch for local development::
 
