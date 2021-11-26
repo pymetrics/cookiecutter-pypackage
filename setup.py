@@ -5,7 +5,7 @@ from distutils.core import setup
 setup(
     name="cookiecutter-python-library",
     packages=[],
-    version="0.1.0",
+    version="0.2.0",
     description="Cookiecutter template for a Python library",
     author="Pymetrics, Inc.",
     license="BSD",
