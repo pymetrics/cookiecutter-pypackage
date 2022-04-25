@@ -10,6 +10,7 @@
   "version": "0.1.0",
   "use_pytest": "y",
   "use_mypy": "y",
+  "use_black": "y",
   "support_python_3_6": "n",
   "add_pyup_badge": "n",
   "command_line_interface": ["Click", "Argparse", "No command-line interface"],
